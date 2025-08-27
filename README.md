@@ -8,28 +8,28 @@
 
 An intelligent Telegram bot powered by Retrieval-Augmented Generation (RAG) that provides instant, accurate answers about academic syllabus content. Built specifically for educational institutions to help students and faculty access course information, prerequisites, and program details through natural language conversations.
 
-## ✨ Key Features
+##  Key Features
 
-- 🧠 **Intelligent Query Categorization**: Automatically classifies questions into course descriptions, prerequisites, or general information
-- 📚 **Context-Aware Responses**: Provides accurate answers based on document categories with proper source attribution
-- 🚀 **Real-Time Processing**: Instant responses through efficient vector search and BM25 retrieval
-- 💬 **Natural Language Interface**: Conversational AI that understands academic terminology and student queries
-- 📱 **User-Friendly Telegram Interface**: Interactive menu system with category buttons and examples
-- 🔍 **Smart Document Filtering**: Filters relevant content based on page ranges and document structure
-- 📊 **Source Attribution**: Always provides page references for transparency and verification
+-  **Intelligent Query Categorization**: Automatically classifies questions into course descriptions, prerequisites, or general information
+-  **Context-Aware Responses**: Provides accurate answers based on document categories with proper source attribution
+-  **Real-Time Processing**: Instant responses through efficient vector search and BM25 retrieval
+-  **Natural Language Interface**: Conversational AI that understands academic terminology and student queries
+-  **User-Friendly Telegram Interface**: Interactive menu system with category buttons and examples
+-  **Smart Document Filtering**: Filters relevant content based on page ranges and document structure
+-  **Source Attribution**: Always provides page references for transparency and verification
 
-## 🏗️ System Architecture
+##  System Architecture
 
 ```
 Telegram User → Bot Interface → Query Categorizer → Document Retriever → LLM → Response
 ```
 
 ### Document Categories & Page Mapping
-- **📄 General Information** (Pages 1-7): Mission, vision, program overview, admission requirements
-- **📋 Course Prerequisites** (Pages 8-17): Course codes, prerequisites, course relationships
-- **📚 Program Descriptions** (Pages 18-35): Detailed course descriptions, syllabi, learning objectives
+- ** General Information** (Pages 1-7): Mission, vision, program overview, admission requirements
+- ** Course Prerequisites** (Pages 8-17): Course codes, prerequisites, course relationships
+- ** Program Descriptions** (Pages 18-35): Detailed course descriptions, syllabi, learning objectives
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -143,26 +143,26 @@ The prerequisites for MDPS476 are:
 📄 Sources: Pages 12, 15
 ```
 
-**📚 Program Descriptions:**
+** Program Descriptions:**
 ```
 User: "Describe the Mobile Robots course"
-Bot: 📚 Program Description
+Bot:  Program Description
 
 Mobile Robots and Autonomous Systems (MDPS476):
 Introduction to mobile robots, locomotion, kinematics...
 
-📄 Sources: Pages 23, 24
+ Sources: Pages 23, 24
 ```
 
-**ℹ️ General Information:**
+** General Information:**
 ```
 User: "What is the program mission?"
-Bot: ℹ️ General Info
+Bot:  General Info
 
 The MEE program mission is to provide comprehensive
 education in mechanical engineering...
 
-📄 Sources: Pages 2, 3
+ Sources: Pages 2, 3
 ```
 
 ### Interactive Features
@@ -172,7 +172,7 @@ education in mechanical engineering...
 - **Source Attribution**: Every response includes page references
 - **Error Handling**: Graceful handling of unclear queries
 
-## 🎯 Advanced Features
+##  Advanced Features
 
 ### Smart Query Processing
 ```python
@@ -189,7 +189,7 @@ education in mechanical engineering...
 - **Message Length Handling**: Automatic splitting for long responses
 - **Typing Indicators**: Shows bot is processing
 
-## 🔍 Bot Capabilities
+##  Bot Capabilities
 
 ### What the Bot Can Answer:
 ✅ Course prerequisites and requirements  
@@ -205,14 +205,14 @@ education in mechanical engineering...
 ❌ Handle image or voice messages  
 ❌ Store personal user information  
 
-## 📊 Performance Metrics
+##  Performance Metrics
 
 - **Response Time**: < 5 seconds for most queries
 - **Accuracy**: 95%+ for questions within document scope
 - **Categorization Precision**: 98%+ query classification accuracy
 - **Source Attribution**: 100% of responses include page references
 
-## 🛠️ Development & Deployment
+##  Development & Deployment
 
 ### Local Development
 ```bash
@@ -243,7 +243,7 @@ COPY . .
 CMD ["python", "telegram_rag_bot.py"]
 ```
 
-## 🔒 Security & Privacy
+##  Security & Privacy
 
 ### Data Protection
 - **No User Data Storage**: Bot doesn't store personal information
@@ -260,7 +260,7 @@ CMD ["python", "telegram_rag_bot.py"]
 - Secure token management
 ```
 
-## 🧪 Testing
+##  Testing
 
 ### Manual Testing
 ```bash
@@ -279,7 +279,7 @@ python telegram_rag_bot.py
 pytest tests/
 ```
 
-## 🚀 Scaling Considerations
+##  Scaling Considerations
 
 ### For High Traffic:
 - **Database Optimization**: Consider PostgreSQL for metadata
@@ -293,7 +293,7 @@ pytest tests/
 - **Response Cache**: Cache frequent question-answer pairs
 - **Batch Processing**: Process multiple queries efficiently
 
-## 🤝 Contributing
+##  Contributing
 
 ### Development Setup
 1. Fork the repository
@@ -313,7 +313,7 @@ pytest tests/
 - Update documentation for API changes
 - Test bot functionality before submitting
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Common Issues
 
@@ -413,18 +413,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support & Contact
 
-- **Documentation**: [Project Wiki](https://github.com/yourusername/telegram-rag-bot/wiki)
-- **Issues**: [GitHub Issues](https://github.com/yourusername/telegram-rag-bot/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/telegram-rag-bot/discussions)
-- **Email**: your.email@example.com
-- **Telegram**: [@yourusername](https://t.me/yourusername)
+- **Email**: ahmedrehan2214@gmail.com
 
-## 📊 Stats
 
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/telegram-rag-bot?style=social)](https://github.com/yourusername/telegram-rag-bot/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/yourusername/telegram-rag-bot?style=social)](https://github.com/yourusername/telegram-rag-bot/network/members)
-[![GitHub issues](https://img.shields.io/github/issues/yourusername/telegram-rag-bot)](https://github.com/yourusername/telegram-rag-bot/issues)
-[![GitHub pull requests](https://img.shields.io/github/issues-pr/yourusername/telegram-rag-bot)](https://github.com/yourusername/telegram-rag-bot/pulls)
 
 ---
 
