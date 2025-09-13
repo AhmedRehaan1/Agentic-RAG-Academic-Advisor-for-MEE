@@ -1,0 +1,13 @@
+python-telegram-bot==20.7
+langchain==0.1.0
+langchain-openai==0.0.5
+langchain-google-genai==0.0.8
+langchain-community==0.0.12
+chromadb==0.4.22
+pypdf==3.17.4
+tiktoken==0.5.2
+rapidfuzz==3.6.1
+python-dotenv==1.0.0
+numpy==1.24.4
+sentence-transformers==2.2.2
+openai==1.7.2
