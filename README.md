@@ -29,24 +29,6 @@ Centralized logging for debugging and monitoring.
 ## Project Structure
 mee-academic-assistant/
 
-│
-├── README.md
-├── requirements.txt
-├── .env
-│
-├── data/                       # JSON data sources
-├── logs/                       # Log files
-├── chroma_db/                  # Persisted vector database
-│
-├── src/
-│   ├── config/                 # Settings & logging configuration
-│   ├── data_processing/        # JSON loading & document chunking
-│   ├── retrieval/              # Chroma retriever, BM25 fallback, categorizer
-│   ├── rag/                    # Prompts, RAG system, vectorstore initialization
-│   ├── bot/                    # Telegram bot handlers & message processing
-│   └── main.py                 # Entry point
-│
-└── tests/                      # Unit tests
 
 
 
