@@ -1,0 +1,20 @@
+# Environment variables
+.env
+
+# Python
+__pycache__/
+
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+#chroma db
+rehaan_chroma_db/
+
+#logs
+logs/
+
+#data
+data/
