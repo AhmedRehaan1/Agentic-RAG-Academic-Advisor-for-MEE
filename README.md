@@ -3,6 +3,8 @@ This project is a Retrieval-Augmented Generation (RAG) system integrated with a 
 
 The system combines Chroma vector search, BM25 keyword retrieval, and LLM-powered query understanding to deliver precise and reliable answers.
 
+https://github.com/user-attachments/assets/54b204b6-8362-4561-b075-a66bad4c4ca3
+
 ## Features
 
 Telegram Bot Interface
