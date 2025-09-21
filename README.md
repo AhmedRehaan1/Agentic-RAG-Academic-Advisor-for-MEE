@@ -3,7 +3,7 @@ This project is a Retrieval-Augmented Generation (RAG) system integrated with a 
 
 The system combines Chroma vector search, BM25 keyword retrieval, and LLM-powered query understanding to deliver precise and reliable answers.
 
-https://github.com/user-attachments/assets/54b204b6-8362-4561-b075-a66bad4c4ca3
+https://github.com/user-attachments/assets/8e6d972c-7485-419e-a5ba-5bf5eab8c99e
 
 ## Features
 
