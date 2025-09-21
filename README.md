@@ -27,7 +27,7 @@ Logging & Error Handling
 Centralized logging for debugging and monitoring.
 
 ## Project Structure
-mee-academic-assistant/
+<img width="227" height="527" alt="Image" src="https://github.com/user-attachments/assets/6f5c446d-865c-4b0f-8cbf-75ecf7648589" />
 
 
 
