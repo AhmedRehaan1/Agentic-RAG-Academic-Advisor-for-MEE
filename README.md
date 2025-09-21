@@ -1,9 +1,9 @@
-## MEE Academic Assistant – RAG + Telegram Bot:
+# MEE Academic Assistant – RAG + Telegram Bot:
 This project is a Retrieval-Augmented Generation (RAG) system integrated with a Telegram bot designed to provide quick, accurate, and context-aware responses to student queries about courses, prerequisites, schedules, and general information related to the Mechanical Engineering department.
 
 The system combines Chroma vector search, BM25 keyword retrieval, and LLM-powered query understanding to deliver precise and reliable answers.
 
-# Features
+## Features
 
 Telegram Bot Interface
 Simple, accessible chat interface for students to ask questions.
@@ -26,13 +26,13 @@ Supports loading and preprocessing multiple JSON data sources (courses, schedule
 Logging & Error Handling
 Centralized logging for debugging and monitoring.
 
-## Project Structure
+# Project Structure
 <img width="227" height="527" alt="Image" src="https://github.com/user-attachments/assets/6f5c446d-865c-4b0f-8cbf-75ecf7648589" />
 
 
 
 
-## Setup & Installation
+# Setup & Installation
 ## 1. Clone the Repository
 git clone https://github.com/your-username/mee-academic-assistant.git
 cd mee-academic-assistant
@@ -54,11 +54,11 @@ GOOGLE_API_KEY=your_gemini_api_key
 CHROMA_DB_PATH=./chroma_db
 LOG_FILE=./logs/app.log
 
-## Usage
-# 1. Build or Update the Vector Database
+# Usage
+## 1. Build or Update the Vector Database
 python src/rag/initialize.py
 
-# 2. Start the Telegram Bot
+## 2. Start the Telegram Bot
 python src/main.py
 
 
@@ -86,11 +86,11 @@ Run unit tests:
 
 pytest tests/
 
-## Deployment
+# Deployment
 
 This project can be easily containerized for production deployment. A Dockerfile can be added to package the bot with all dependencies and run it on a server or cloud platform.
 
-## Roadmap
+# Roadmap
 
 Add support for web-based admin panel to upload new JSON data
 
