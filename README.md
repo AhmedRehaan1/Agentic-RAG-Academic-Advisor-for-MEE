@@ -1,328 +1,116 @@
-# 🎓 MEE Academic Assistant Bot
+## MEE Academic Assistant – RAG + Telegram Bot:
+This project is a Retrieval-Augmented Generation (RAG) system integrated with a Telegram bot designed to provide quick, accurate, and context-aware responses to student queries about courses, prerequisites, schedules, and general information related to the Mechanical Engineering department.
 
-An intelligent Telegram bot powered by advanced RAG (Retrieval-Augmented Generation) technology that helps students and faculty access information about the Master of Engineering in Electronics (MEE) program. The bot uses OpenAI's GPT-4 and advanced document retrieval techniques to answer questions about courses, prerequisites, training requirements, and general program information.
+The system combines Chroma vector search, BM25 keyword retrieval, and LLM-powered query understanding to deliver precise and reliable answers.
 
-## 🚀 Features
+# Features
 
-### 📚 **Multi-Category Query Handling**
-- **Course Prerequisites**: Information about course codes, names, and requirements
-- **Program Descriptions**: Detailed course content, syllabi, and learning objectives  
-- **Training Rules**: Industrial training and summer training requirements and procedures
-- **General Information**: Program mission, vision, admission requirements, and graduation criteria
+Telegram Bot Interface
+Simple, accessible chat interface for students to ask questions.
 
-### 🔍 **Advanced RAG Technology**
-- **Hybrid Retrieval**: Combines vector similarity search (Chroma) with keyword-based search (BM25)
-- **Intelligent Categorization**: Automatically categorizes queries for optimized responses
-- **Context-Aware Responses**: Tailored prompts for different question types
-- **Smart Document Filtering**: Category-based document retrieval for precision
+Retrieval-Augmented Generation (RAG)
+Combines semantic search (via Chroma) and keyword search (BM25) for contextually relevant results.
 
-### 💬 **Telegram Integration**
-- Interactive menu with category buttons
-- Real-time typing indicators
-- Message length optimization for Telegram
-- Error handling and user feedback
-- Source page citations
+Query Categorization
+Automatic classification of questions into categories (e.g., general info, course details, prerequisites).
 
-## 📋 Prerequisites
+Structured Prompts
+Different prompt templates tailored for each query type for more accurate LLM responses.
 
-### System Requirements
-- Python 3.8 or higher
-- 4GB RAM minimum (8GB recommended for optimal performance)
-- 2GB free disk space
-- Internet connection for API calls
+Metadata Filtering
+Ensures retrieved documents are relevant by filtering based on course code, semester, or data source.
 
-### Required Accounts & Keys
-- **Telegram Bot Token**: Get from [@BotFather](https://t.me/botfather)
-- **OpenAI API Key**: Get from [OpenAI Platform](https://platform.openai.com)
+Extensible Data Pipeline
+Supports loading and preprocessing multiple JSON data sources (courses, schedules, training programs).
 
-## 🛠️ Installation
+Logging & Error Handling
+Centralized logging for debugging and monitoring.
 
-### 1. Clone the Repository
-```bash
-git clone https://github.com/yourusername/mee-academic-assistant-bot.git
-cd mee-academic-assistant-bot
-```
+## Project Structure
+mee-academic-assistant/
+│
+├── README.md
+├── requirements.txt
+├── .env
+│
+├── data/                       # JSON data sources
+├── logs/                       # Log files
+├── chroma_db/                  # Persisted vector database
+│
+├── src/
+│   ├── config/                 # Settings & logging configuration
+│   ├── data_processing/        # JSON loading & document chunking
+│   ├── retrieval/              # Chroma retriever, BM25 fallback, categorizer
+│   ├── rag/                    # Prompts, RAG system, vectorstore initialization
+│   ├── bot/                    # Telegram bot handlers & message processing
+│   └── main.py                 # Entry point
+│
+└── tests/                      # Unit tests
 
-### 2. Create Virtual Environment
-```bash
-# Create virtual environment
+Setup & Installation
+1. Clone the Repository
+git clone https://github.com/your-username/mee-academic-assistant.git
+cd mee-academic-assistant
+
+2. Create a Virtual Environment
 python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-# Activate virtual environment
-# On Windows:
-venv\Scripts\activate
-# On macOS/Linux:
-source venv/bin/activate
-```
-
-### 3. Install Dependencies
-```bash
+3. Install Dependencies
 pip install -r requirements.txt
-```
 
-### 4. Environment Setup
-Create a `.env` file in the project root:
-```env
-OPENAI_API_KEY=your_openai_api_key_here
-TELEGRAM_TOKEN=your_telegram_bot_token_here
-```
+4. Configure Environment Variables
 
-### 5. Add Your PDF Document
-Place your MEE syllabus PDF file in the project directory and name it:
-```
-MEE_Sylabus_with_metadata.pdf
-```
+Create a .env file in the project root with the following:
 
-## 📦 Dependencies
-
-```txt
-python-telegram-bot>=20.0
-langchain>=0.1.0
-langchain-openai>=0.0.5
-langchain-community>=0.0.10
-chromadb>=0.4.0
-pypdf>=3.0.0
-tiktoken>=0.5.0
-rapidfuzz>=3.0.0
-python-dotenv>=1.0.0
-```
-
-## 🏃‍♂️ Running the Bot
-
-### Local Development
-```bash
-# Activate virtual environment
-source venv/bin/activate  # or venv\Scripts\activate on Windows
-
-# Run the bot
-python your_bot_filename.py
-```
-
-### Using Docker
-```bash
-# Build the image
-docker build -t mee-bot .
-
-# Run the container
-docker run -d --name mee-bot \
-  --env-file .env \
-  -v $(pwd)/chroma_mee:/app/chroma_mee \
-  -v $(pwd)/MEE_Sylabus_with_metadata.pdf:/app/MEE_Sylabus_with_metadata.pdf \
-  mee-bot
-```
-
-### Using Docker Compose
-```bash
-# Start the bot
-docker-compose up -d
-
-# View logs
-docker-compose logs -f
-
-# Stop the bot
-docker-compose down
-```
-
-## 🗂️ Project Structure
-
-```
-mee-academic-assistant-bot/
-├── your_bot_filename.py          # Main bot application
-├── MEE_Sylabus_with_metadata.pdf # Source document (you provide this)
-├── requirements.txt              # Python dependencies
-├── .env                         # Environment variables (create this)
-├── .env.example                 # Environment template
-├── Dockerfile                   # Docker configuration
-├── docker-compose.yml          # Docker Compose setup
-├── README.md                    # This file
-├── chroma_mee/                  # Vector database storage
-│   └── (generated files)
-└── logs/                        # Log files (optional)
-    └── bot.log
-```
-
-## 📖 Usage Guide
-
-### Bot Commands
-- `/start` - Show main menu with category buttons
-- `/help` - Display help information and usage instructions
-- `/examples` - Show example queries for each category
-
-### Query Categories & Examples
-
-#### 📋 **Course Prerequisites**
-```
-"What are the prerequisites for MDPS476?"
-"Which courses require MDPS423 as a prerequisite?"
-"List all available course codes"
-"What courses do I need before taking Advanced Control Systems?"
-```
-
-#### 📚 **Program Descriptions** 
-```
-"Describe the Mobile Robots and Autonomous Systems course"
-"What topics are covered in computer vision courses?"
-"Explain MDPS476 learning objectives"
-"What is the content of the Machine Learning course?"
-```
-
-#### 🏭 **Training Rules**
-```
-"What are the industrial training requirements?"
-"How long is the summer training period?"
-"Industrial training procedures and guidelines"
-"Summer training evaluation criteria"
-"What documents are needed for training registration?"
-```
-
-#### ℹ️ **General Information**
-```
-"What is the program mission and vision?"
-"How many credit hours are required for graduation?"
-"What are the admission requirements?"
-"Program structure and degree requirements"
-```
-
-## 🚀 Deployment Options
-
-### 1. **Cloud VPS (Recommended)**
-- **DigitalOcean Droplet**: $5/month
-- **AWS EC2**: Free tier available
-- **Linode**: $5/month
-- **Hetzner Cloud**: €3.29/month
-
-### 2. **Serverless Platforms**
-- **Heroku**: Free tier for testing
-- **Railway**: Simple GitHub integration
-- **Render**: Modern platform with auto-deploy
-- **Google Cloud Run**: Pay-per-use
-
-### 3. **Container Platforms**
-- **AWS ECS**: Managed container service
-- **Google Cloud Run**: Serverless containers
-- **Azure Container Instances**: Simple container hosting
-
-## 📊 System Architecture
-
-### Document Processing Pipeline
-```
-PDF Document → Page Extraction → Metadata Extraction → 
-Text Chunking → Vector Embeddings → Chroma Database Storage
-```
-
-### Query Processing Flow
-```
-User Query → Category Classification → Document Retrieval → 
-Context Assembly → LLM Processing → Response Generation
-```
-
-### Page-Based Categorization
-- **Pages 1-7**: General Information
-- **Pages 8-17**: Course Prerequisites  
-- **Pages 18-34**: Program Descriptions
-- **Pages 35-41**: Training Rules
-
-## 🔧 Configuration
-
-### Environment Variables
-```env
-# Required
-OPENAI_API_KEY=your_openai_api_key
 TELEGRAM_TOKEN=your_telegram_bot_token
+OPENAI_API_KEY=your_openai_api_key
+GOOGLE_API_KEY=your_gemini_api_key
+CHROMA_DB_PATH=./chroma_db
+LOG_FILE=./logs/app.log
 
-# Optional
-PDF_PATH=MEE_Sylabus_with_metadata.pdf
-COLLECTION_NAME=mee_syllabus_v1
-LOG_LEVEL=INFO
-MAX_TOKENS=4000
-TEMPERATURE=0
-```
+## Usage
+# 1. Build or Update the Vector Database
+python src/rag/initialize.py
 
-### Customizable Parameters
-- **Chunk Size**: Default 1200 characters
-- **Chunk Overlap**: Default 150 characters  
-- **Retrieval Count**: Default 8 documents (vector) + 6 (BM25)
-- **Temperature**: Default 0 (deterministic responses)
+# 2. Start the Telegram Bot
+python src/main.py
 
-## 🐛 Troubleshooting
 
-### Common Issues
+Once running, open Telegram and start chatting with your bot.
 
-#### Bot Not Responding
-```bash
-# Check logs
-tail -f logs/bot.log
+Data Sources
 
-# Verify environment variables
-echo $TELEGRAM_TOKEN
-echo $OPENAI_API_KEY
-```
+The system currently supports:
 
-#### PDF Loading Errors
-- Ensure PDF file exists in project directory
-- Check file permissions
-- Verify PDF is not corrupted or password-protected
+General_Info.json – Department-wide announcements and general guidance
 
-#### Memory Issues
-- Increase system RAM
-- Reduce chunk size in configuration
-- Use smaller embedding models
+courses_prereq_description.json – Course descriptions and prerequisites
 
-#### API Errors
-- Verify OpenAI API key is valid
-- Check API usage limits
-- Ensure stable internet connection
+mee_spring_2025_raw_data.json – Spring 2025 semester data
 
-### Performance Optimization
-- Use SSD storage for vector database
-- Increase RAM for better caching
-- Consider using GPU for faster embeddings
+Fall_2024.json – Fall 2024 semester data
 
-## 📝 Logging
+Industrial_training.json – Industrial training requirements
 
-The bot includes comprehensive logging:
-- **Info Level**: Normal operations, user queries
-- **Error Level**: Exceptions, API failures
-- **Debug Level**: Detailed processing information
+Adding new data sources only requires placing them in data/ and re-running initialize.py.
 
-Log files are stored in `logs/bot.log` with automatic rotation.
+Development & Testing
 
-## 🤝 Contributing
+Run unit tests:
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+pytest tests/
 
-## 📄 License
+## Deployment
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project can be easily containerized for production deployment. A Dockerfile can be added to package the bot with all dependencies and run it on a server or cloud platform.
 
-## ⚠️ Disclaimer
+## Roadmap
 
-This bot is designed for academic purposes. Ensure compliance with:
-- OpenAI's usage policies
-- Telegram's bot guidelines
-- Your institution's data policies
-- Applicable privacy regulations
+Add support for web-based admin panel to upload new JSON data
 
-## 📞 Support
+Integrate Selenium-based scraping for automatic data updates
 
-- **Issues**: Create an issue on GitHub
-- **Documentation**: Check this README and inline code comments
-- **Updates**: Watch the repository for new releases
+Expand query categories for more specialized responses
 
-## 🎯 Roadmap
-
-- [ ] Multi-language support
-- [ ] Voice message processing
-- [ ] Integration with learning management systems
-- [ ] Advanced analytics dashboard
-- [ ] Mobile app companion
-- [ ] Multi-document support
-- [ ] Real-time document updates
-
----
-
-**Made with ❤️ for the MEE community**
+Add support for streaming responses in Telegram for long answers
