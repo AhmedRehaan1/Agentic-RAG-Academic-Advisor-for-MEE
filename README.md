@@ -33,18 +33,18 @@ Centralized logging for debugging and monitoring.
 
 
 ## Setup & Installation
-# 1. Clone the Repository
+## 1. Clone the Repository
 git clone https://github.com/your-username/mee-academic-assistant.git
 cd mee-academic-assistant
 
-# 2. Create a Virtual Environment
+## 2. Create a Virtual Environment
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-# 3. Install Dependencies
+## 3. Install Dependencies
 pip install -r requirements.txt
 
-# 4. Configure Environment Variables
+## 4. Configure Environment Variables
 
 Create a .env file in the project root with the following:
 
