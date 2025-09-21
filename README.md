@@ -28,6 +28,7 @@ Centralized logging for debugging and monitoring.
 
 ## Project Structure
 mee-academic-assistant/
+
 │
 ├── README.md
 ├── requirements.txt
@@ -46,6 +47,8 @@ mee-academic-assistant/
 │   └── main.py                 # Entry point
 │
 └── tests/                      # Unit tests
+
+
 
 Setup & Installation
 1. Clone the Repository
